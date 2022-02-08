@@ -1,0 +1,58 @@
+# behat.yml
+default:
+  autoload:
+    '': '%paths.base%/features/bootstrap/'
+  suites:
+    default:
+#      paths:
+#        features: features
+#        bootstrap: 'features/bootstrap'
+      contexts:
+#        - Behat\MinkExtension\Context\MinkContext
+        - FeatureContext
+  extensions:
+    shvetsgroup\ParallelRunner\Extension:
+      
+    SensioLabs\Behat\PageObjectExtension: ~
+    Behat\MinkExtension:
+      browser_name: chrome
+      goutte:
+      javascript_session: selenium2
+      default_session: selenium2
+      selenium2:
+        browser: edge
+        wd_host: http://127.0.0.1:4444/wd/hub
+        capabilities:
+          extra_capabilities:
+            chromeOptions:
+              args:
+                - "--start-fullscreen"
+              w3c: false
+            moz:firefoxOptions:
+              args:
+                 - "-width=1500"
+                 - "-height=200"
+            edgeOptions:
+              args:
+#                - "--no-sandbox"
+#                - "--disable-dev-shm-usage"
+#                - "--headless"
+#                - "--disable-gpu"
+#                - "--dns-prefetch-disable"
+#                - "--disable-setuid-sandbox"
+                - "--window-size=1920,1080"
+#                - "--remote-debugging-port=9222"
+      #            switches:
+#              - "--start-maximized"
+#              - "--start-fullscreen"
+#              - "--window-size=150 0,500"
+
+
+#      base_url: http://bdrupal.dd:8083/en
+#      base_url: http://automationpractice.com
+#      base_url: http://mywebsite.dd:8083
+#      base_url: https://www.ag-grid.com
+#      base_url: http://www.autopract.com
+      base_url: https://www.programsbuzz.com
+
+
